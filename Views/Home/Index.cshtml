@@ -1,0 +1,44 @@
+﻿@model TestUser
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+       @if(@ViewBag.Message != null){ <div class = "card-panel">@ViewBag.Message</div> }
+        <div class="col s6">
+            <h2>Register:</h2>
+            <form action="createuser" method="post">
+                <input type="text" asp-for="Firstname">
+                <label for="Firstname">First name</label>
+                <input type="text" asp-for="Lastname">
+                <label for="Lastname">Last name</label>
+                <input type="email" asp-for="Email">
+                <label for="Email">Email</label>
+                <input type="password" asp-for="Password">
+                <label for="Password">Password</label>
+                <input type="password"  asp-for="PasswordConfirm">
+                <label for="PasswordConfirm">Confirm Password</label>
+                <p><button type = "submit" class="waves-effect waves-light btn">Register</button></p>
+
+            </form>
+        </div>
+
+        <div class="col s6">
+            <h2>Login:</h2>
+            <form action="loginuser" method="post">
+                <input type="email" asp-for="Email">
+                <label for="Email">Email</label>
+                <input type="password" asp-for="Password">
+                <label for="Password">Password</label>
+                <p><button type = "submit" class="waves-effect waves-light btn">Login</button></p>
+
+            </form>
+        </div>
+
+        
+    
+    </div>
+
+</div>

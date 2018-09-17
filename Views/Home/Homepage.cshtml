@@ -1,0 +1,22 @@
+@model List<Wedding>
+<h2>Wedding season!</h2>
+    @{
+        foreach(var wedding in @Model) {
+            <p>@wedding.Wedder1 and @wedding.Wedder2</p>
+            <p># ofGuests: @wedding.RsvpList.Count</p>
+            //if the wedding's rsvp list has an item with UserId == 1
+            //if wedding's RsvpList[i].UserId == 1;
+            @if (wedding.RsvpList.Exists(u => u.UserId == ViewBag.UserId)){
+            <p><a href = "removersvp/@wedding.WeddingId" >Un-RSVP</a></p>
+            } else if (wedding.CreatorId == ViewBag.UserId) {
+                <a href = "delete/@wedding.WeddingId" >Delete</a>
+            } else {
+                <a href = "addrsvp/@wedding.WeddingId">RSVP</a>
+            }
+            <a href = "wedding/@wedding.WeddingId">See Details</a>
+        }
+    }
+
+<a class ="button" href ="/newwedding">Make New Wedding</a>
+
+<a href = "logout" >Log out</a> 

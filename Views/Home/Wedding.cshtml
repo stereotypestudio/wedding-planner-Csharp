@@ -1,0 +1,12 @@
+@model Wedding
+
+<h2>Details for @Model.Wedder1 and @Model.Wedder2 's wedding!</h2>
+
+<h3>Date: @Model.WeddingDate</h3>
+
+<h3>Guests</h3>
+@{
+    foreach(var guest in @Model.RsvpList){
+        <p>@guest.User.Firstname</p>
+    }
+}
